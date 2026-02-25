@@ -203,12 +203,6 @@ All settings are centralized in `config/config.py`:
 
 ---
 
-## 📄 License
 
-This project is licensed under the MIT License.
 
 ---
-
-<div align="center">
-  <b>Built with ❤️ using PyTorch, EfficientNet, and Streamlit</b>
-</div>
