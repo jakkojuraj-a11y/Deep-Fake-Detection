@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  deepfake-detector:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: deepfake-detector
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount model weights so you don't need to retrain inside container
+      - ./outputs:/app/outputs
+      # Mount data for potential in-container training
+      - ./data:/app/data
+    environment:
+      - STREAMLIT_SERVER_HEADLESS=true
+      - STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
